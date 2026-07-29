@@ -21,6 +21,10 @@ spec:
           volumeMounts:
             - mountPath: "/etc/linkding/data"
               name: linkding-data
+      securityContext: # run as www-data
+        fsGroup: 82
+        runAsUser: 82
+        runAsGroup: 82
       volumes:
         - name: linkding-data
           persistentVolumeClaim:
