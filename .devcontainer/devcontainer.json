@@ -1,0 +1,10 @@
+{
+  "build": {
+    "context": "..",
+    "dockerfile": "Dockerfile"
+  },
+  "containerEnv": {
+    "KUBECONFIG": "/workspaces/homelab/kubeconfig"
+  },
+  "postCreateCommand": "./.devcontainer/setup"
+}

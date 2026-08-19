@@ -1,0 +1,6 @@
+#!/bin/bash
+
+mkdir -p ~/.ssh
+ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts
+
+/usr/local/bin/mise trust /workspaces/$DEVSY_WORKSPACE_ID/mise.toml && /usr/local/bin/mise install
