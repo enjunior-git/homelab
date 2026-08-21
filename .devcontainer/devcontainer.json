@@ -6,5 +6,6 @@
   "containerEnv": {
     "KUBECONFIG": "/workspaces/homelab/kubeconfig"
   },
-  "postCreateCommand": "./.devcontainer/setup"
+  "postCreateCommand": "./.devcontainer/setup",
+  "forwardPorts": [9090, 8010, 3010, 4010, 5010]
 }
