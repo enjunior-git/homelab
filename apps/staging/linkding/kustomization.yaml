@@ -4,4 +4,5 @@ namespace: linkding
 resources:
   - ../../base/linkding
   - deployment.yaml
-  - test-secret.yaml
+  - creds.yaml
+  - tunnel-credentials.yaml
