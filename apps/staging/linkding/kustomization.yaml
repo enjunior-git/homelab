@@ -6,3 +6,4 @@ resources:
   - deployment.yaml
   - creds.yaml
   - tunnel-credentials.yaml
+  - ingress.yaml
