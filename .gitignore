@@ -2,3 +2,5 @@ kubeconfig
 tunnels/*
 !tunnels/.gitkeep
 *.agekey
+*.key
+*.crt

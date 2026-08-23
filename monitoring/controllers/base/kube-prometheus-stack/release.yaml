@@ -29,3 +29,13 @@ spec:
   values:
     grafana:
       adminPassword: junior
+      ingress:
+        enabled: true
+        ingressClassName: traefik
+        hosts:
+          - grafana.enjunior.ca
+        path: /
+        tls:
+          secretName: grafana-secret-tls
+          hosts:
+            - grafana.enjunior.ca
