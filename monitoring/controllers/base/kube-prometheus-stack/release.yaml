@@ -36,6 +36,6 @@ spec:
           - grafana.enjunior.ca
         path: /
         tls:
-          secretName: grafana-secret-tls
-          hosts:
-            - grafana.enjunior.ca
+          - secretName: grafana-secret-tls
+            hosts:
+              - grafana.enjunior.ca
