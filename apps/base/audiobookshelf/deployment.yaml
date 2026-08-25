@@ -28,10 +28,10 @@ spec:
               name: audiobookshelf-audiobooks
             - mountPath: "/podcasts"
               name: audiobookshelf-podcasts
-      #securityContext: # TODO: Run as node user
-      #  fsGroup: 82
-      #  runAsUser: 82
-      #  runAsGroup: 82
+      securityContext: # Run as node user
+        fsGroup: 1000
+        runAsUser: 1000
+        runAsGroup: 1000
       volumes:
         - name: audiobookshelf-config
           persistentVolumeClaim:
