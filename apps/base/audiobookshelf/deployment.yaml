@@ -19,14 +19,20 @@ spec:
           ports:
             - containerPort: 80
               name: http
-          #volumeMounts:
-          #  - mountPath: "/etc/linkding/data"
-          #    name: linkding-data
+          volumeMounts:
+            - mountPath: "/config"
+              name: audiobookshelf-config
+            - mountPath: "/metadata"
+              name: audiobookshelf-metadata
+            - mountPath: "/audiobooks"
+              name: audiobookshelf-audiobooks
+            - mountPath: "/podcasts"
+              name: audiobookshelf-podcasts
       #securityContext: # TODO: Run as node user
       #  fsGroup: 82
       #  runAsUser: 82
       #  runAsGroup: 82
-      #volumes:
-      #  - name: linkding-data
-      #    persistentVolumeClaim:
-      #      claimName: linkding-data-pvc
+      volumes:
+        - name: audiobookshelf-data
+          persistentVolumeClaim:
+            claimName: audiobookshelf-data-pvc
