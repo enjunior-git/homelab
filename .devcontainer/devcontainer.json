@@ -4,8 +4,17 @@
     "dockerfile": "Dockerfile"
   },
   "containerEnv": {
-    "KUBECONFIG": "/workspaces/homelab/kubeconfig"
+    "KUBECONFIG": "/workspaces/homelab/kubeconfig",
+    "PATH": "/workspaces/homelab/scripts:${containerEnv:PATH}"
   },
   "postCreateCommand": "./.devcontainer/setup",
-  "forwardPorts": [9090, 8010, 3010, 4010, 5010]
+  "forwardPorts": [
+    3010,
+    4010,
+    5010,
+    6010,
+    7010,
+    8010,
+    9010
+  ]
 }
