@@ -1,0 +1,22 @@
+apiVersion: v1
+data:
+    credentials.json: ENC[AES256_GCM,data:NQQT+/wHkfL89sr1VWVWl4aSPgGOoI1kR0H7O0reEu7a37sK4ol01c8dkCWU5zEn3U4S3xHwH3KqNsTTLZWIYUz7jSI6wzI1fExE1KwWQeElAB4v/vHBZwp8IB5+yUF6+/q3QAhgMaQi00Dz3GUuekXPIjjzcV1cz/MCe6T7hyTrdxv8KPuQ+gicwg/iu4pRl6KO7T9skXwFuuuTmHXzzyz1DLG/9PGGYz2z1EaJ6BmhEHojSuwbw3eVfrnHhpVxTf+1WM6EyqxOSktYEnn6jHRmhUEGVpMScBBOXtmPT3NpO0gM9pardM51NO0=,iv:OUSWp4rqmqtp6gwupyaytlQ4HqwJzB4QnWLKmAU/EkI=,tag:j5AtsCbGHFuu2s/j43T/hQ==,type:str]
+kind: Secret
+metadata:
+    name: tunnel-credentials
+    namespace: audiobookshelf
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB5V1ZRV211ekw0ZUMwcWd5
+            VUg0RENQWXNEeUE4aDlxTUNjYllwWEludnpBCkIvQXlMczBiNXd2QkhMUXREUzhj
+            cW85emRFL3NJYkJVQ2NOUVFYT25Xc1UKLS0tIFY4MU5XY2FxMnRiTnNKcStoazhS
+            bExNSzhLUmtYbEZLdDA3V2xDbHFXYUUKwiS51Lf1tZiV+1TYgYeRI591BCYUIcp4
+            llYabCKF3qSLoslt1OvoSHGNr0ptvlo3MwuA5NSyOM+a/sGCBeQHBg==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age1cstt3vzkqqzz9rhdlc4f3u04wrtky5hpckf0uzvqdhjrjghm3fjssmyh2u
+    encrypted_regex: ^(data|stringData)$
+    lastmodified: "2026-08-26T12:13:36Z"
+    mac: ENC[AES256_GCM,data:bRpwDQTkqZ8cqJJqrD3InyJLWW3CRHu/cqRukSTMmOyssTLoYxk/s08R3iwOyCTfoYc75bLw7LUVnj5JxbYOTqGvx8IOvrwsZqmdrpLHMOzcH/zalRDpYX5RRxBqZX5OCnUu+WovIAVuY8NagOstpN9HJ8KkegKhUXPtEGIWvTY=,iv:1GchzW5gLMP/r7gk6Kfvo3HV4M6/7+Ct9TKW6bwRFyI=,tag:vf878y1Hjlcmuu8TY6ZYrg==,type:str]
+    version: 3.13.3

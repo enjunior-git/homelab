@@ -68,7 +68,7 @@ data:
   config.yaml: |
     # Name of the tunnel you want to run
 
-    tunnel: ldpi
+    tunnel: audiobookshelf
 
     credentials-file: /etc/cloudflared/creds/credentials.json
 
@@ -77,8 +77,8 @@ data:
     no-autoupdate: true
 
     ingress:
-    - hostname: bookmarks.enjunior.ca
-      service: http://linkding:9090
+    - hostname: audiobooks.enjunior.ca
+      service: http://audiobookshelf:3005
 
     # This rule matches any traffic which didn't match a previous rule, and responds with HTTP 404.
     - service: http_status:404
