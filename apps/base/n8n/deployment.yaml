@@ -15,7 +15,7 @@ spec:
       labels:
         app: n8n
     volumes:
-      - name: n8n-storage
+      - name: n8n-data
         persistentVolumeClaim:
           claimName: pvc-n8n
     spec:
@@ -30,6 +30,6 @@ spec:
             - containerPort: 5678
           volumeMounts:
             - mountPath: /home/node/.n8n
-              name: n8n-storage
+              name: n8n-data
           securityContext:
             allowPrivilegeEscalation: false
