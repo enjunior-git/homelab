@@ -1,8 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: n8n
   name: n8n
   namespace: n8n
 spec:
@@ -14,15 +12,7 @@ spec:
     metadata:
       labels:
         app: n8n
-    volumes:
-      - name: n8n-data
-        persistentVolumeClaim:
-          claimName: pvc-n8n
     spec:
-      securityContext:
-        runAsUser: 1000
-        runAsGroup: 1000
-        fsGroup: 1000
       containers:
         - image: n8nio/n8n
           name: n8n
@@ -33,3 +23,11 @@ spec:
               name: n8n-data
           securityContext:
             allowPrivilegeEscalation: false
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+      volumes:
+        - name: n8n-data
+          persistentVolumeClaim:
+            claimName: pvc-n8n
