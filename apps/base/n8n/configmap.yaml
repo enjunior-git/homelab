@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: n8n-configmap
+  namespace: n8n
+data:
+  GENERIC_TIMEZONE: America/Montreal
+  TZ: America/Montreal
+  SSL_EMAIL: n8n@enjunior.ca
+  N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: true
+  N8N_HOST: n8n.enjunior.ca
+  N8N_PORT: 5678
+  N8N_PROTOCOL: https
+  WEBHOOL_URL: https://n8n.enjunior.ca/
+  NODE_ENV: production
+  N8N_RESTRICT_FILE_ACCESS_TO: /files
