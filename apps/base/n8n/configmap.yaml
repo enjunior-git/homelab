@@ -10,7 +10,9 @@ data:
   N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: "true"
   N8N_HOST: n8n.enjunior.ca
   N8N_PORT: "5678"
-  N8N_PROTOCOL: https
-  WEBHOOL_URL: https://n8n.enjunior.ca/
+  # N8N_PROTOCOL: https
+  N8N_PROTOCOL: http
+  N8N_SECURE_COOKIE: "false"
+  WEBHOOK_URL: https://n8n.enjunior.ca/
   NODE_ENV: production
   N8N_RESTRICT_FILE_ACCESS_TO: /files
