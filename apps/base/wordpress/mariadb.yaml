@@ -20,9 +20,6 @@ spec:
           image: mariadb:11.4.8
           securityContext:
             allowPrivilegeEscalation: false
-            capabilities:
-              drop:
-                - ALL
             seccompProfile:
               type: RuntimeDefault
           ports:
