@@ -24,9 +24,6 @@ spec:
           image: wordpress:7.1.2-php8.3-apache
           securityContext:
             allowPrivilegeEscalation: false
-            capabilities:
-              drop:
-                - ALL
             seccompProfile:
               type: RuntimeDefault
           ports:
