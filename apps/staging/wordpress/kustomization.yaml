@@ -4,3 +4,5 @@ namespace: wordpress
 resources:
   - ../../base/wordpress
   - database-secret.yaml
+  - tunnel-credentials.yaml
+  - cloudflare-tunnel.yaml

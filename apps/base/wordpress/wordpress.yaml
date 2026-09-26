@@ -47,6 +47,13 @@ spec:
                 secretKeyRef:
                   name: wordpress-database
                   key: password
+            - name: WORDPRESS_CONFIG_EXTRA
+              value: |
+                define('WP_HOME', 'https://milotest.enjunior.ca');
+                define('WP_SITEURL', 'https://milotest.enjunior.ca');
+                if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false) {
+                  $_SERVER['HTTPS'] = 'on';
+                }
 
           startupProbe:
             httpGet:
