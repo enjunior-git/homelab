@@ -5,6 +5,8 @@ metadata:
   namespace: wordpress
 spec:
   replicas: 1
+  minReadySeconds: 10
+  progressDeadlineSeconds: 300
   selector:
     matchLabels:
       app: mariadb
@@ -40,6 +42,14 @@ spec:
                 secretKeyRef:
                   name: wordpress-database
                   key: root-password
+          startupProbe:
+            exec:
+              command:
+                - healthcheck.sh
+                - --connect
+                - --innodb_initialized
+            failureThreshold: 30
+            periodSeconds: 5
           readinessProbe:
             exec:
               command:
