@@ -19,8 +19,6 @@ spec:
       containers:
         - image: n8nio/n8n:2.40.6
           name: n8n
-          restartPolicy: always
-
           ports:
             - containerPort: 5678
 
@@ -30,7 +28,7 @@ spec:
 
           envFrom:
             - configMapRef:
-              name: n8n-configmap
+                name: n8n-configmap
 
           securityContext:
             allowPrivilegeEscalation: false
