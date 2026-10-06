@@ -10,6 +10,7 @@
   "containerEnv": {
     "KUBECONFIG": "/workspaces/homelab/kubeconfig",
     "PATH": "/workspaces/homelab/scripts:${containerEnv:PATH}",
+    "NVIM_CLIPBOARD": "osc52",
     "TZ": "America/Montreal"
   },
   "postCreateCommand": "./.devcontainer/setup",
