@@ -11,7 +11,7 @@ spec:
       database: app
       owner: app
       secret:
-        name: n8n-secrets
+        name: n8n-db-credentials
 
   storage:
     size: 1Gi

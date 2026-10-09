@@ -16,3 +16,7 @@ data:
   WEBHOOK_URL: https://n8n.enjunior.ca/
   NODE_ENV: production
   N8N_RESTRICT_FILE_ACCESS_TO: /files
+  DB_TYPE: "postgresdb"
+  DB_POSTGRESDB_HOST: "customer1-db-rw.customer1.svc.cluster.local"
+  DB_POSTGRESDB_PORT: "5432"
+  DB_POSTGRESDB_DATABASE: "app"
