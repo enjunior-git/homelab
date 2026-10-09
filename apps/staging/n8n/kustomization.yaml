@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - ../../base/n8n
   - secrets.yaml
+  - secrets-db.yaml
