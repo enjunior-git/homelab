@@ -3,8 +3,14 @@ kind: Ingress
 metadata:
   name: linkding
   namespace: linkding
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   ingressClassName: traefik
+  tls:
+    - hosts:
+        - bookmarks.enjunior.ca
+      secretName: bookmarks-tls
   rules:
     - host: bookmarks.enjunior.ca
       http:
