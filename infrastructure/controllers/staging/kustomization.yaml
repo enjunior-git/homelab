@@ -4,4 +4,4 @@ resources:
   - cert-manager
   - cnpg
   - renovate
-  - traefik
+  #- traefik
