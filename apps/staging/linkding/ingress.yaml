@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: lds.enjunior.ca
+    - host: bookmarks.enjunior.ca
       http:
         paths:
           - backend:
