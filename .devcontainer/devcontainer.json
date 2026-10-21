@@ -9,7 +9,7 @@
   ],
   "containerEnv": {
     "KUBECONFIG": "/workspaces/homelab/kubeconfig",
-    "PATH": "/workspaces/homelab/scripts:${containerEnv:PATH}",
+    "PATH": "/workspaces/homelab/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
     "NVIM_CLIPBOARD": "osc52",
     "TZ": "America/Montreal"
   },
@@ -22,5 +22,12 @@
     7010,
     8010,
     9010
-  ]
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode-remote.remote-containers"
+      ]
+    }
+  }
 }

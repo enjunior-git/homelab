@@ -1,6 +1,8 @@
 #!/bin/bash
 
+workspace_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+
 mkdir -p ~/.ssh
 ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts
 
-/usr/local/bin/mise trust /workspaces/$DEVSY_WORKSPACE_ID/mise.toml && /usr/local/bin/mise install
+/usr/local/bin/mise trust "$workspace_dir/mise.toml" && /usr/local/bin/mise install
