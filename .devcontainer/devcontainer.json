@@ -7,6 +7,10 @@
     "--hostname",
     "homelab"
   ],
+  "mounts": [
+    "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.gitconfig,target=/home/vscode/.gitconfig,type=bind,consistency=cached"
+  ],
   "containerEnv": {
     "KUBECONFIG": "/workspaces/homelab/kubeconfig",
     "PATH": "/workspaces/homelab/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
