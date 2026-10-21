@@ -9,6 +9,8 @@ spec:
   selector:
     matchLabels:
       app: n8n
+  strategy:
+    type: Recreate
 
   template:
     metadata:
@@ -29,6 +31,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: n8n-configmap
+            - secretRef:
+                name: n8n-secrets
 
           securityContext:
             allowPrivilegeEscalation: false
