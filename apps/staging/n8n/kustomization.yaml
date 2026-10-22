@@ -4,3 +4,4 @@ resources:
   - ../../base/n8n
   - secrets.yaml
   - secrets-db.yaml
+  - ingress.yaml
