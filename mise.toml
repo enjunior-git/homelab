@@ -2,6 +2,7 @@
 age = "latest"
 cloudflared = "latest"
 flux2 = "latest"
+"github:cloudnative-pg/cloudnative-pg" = "latest"
 helm = "latest"
 k9s = "latest"
 kubectl = "latest"
