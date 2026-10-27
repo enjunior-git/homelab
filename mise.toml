@@ -7,3 +7,10 @@ helm = "latest"
 k9s = "latest"
 kubectl = "latest"
 sops = "latest"
+
+[env]
+KUBECONFIG = "{{config_root}}/kubeconfig"
+
+[tasks.encrypt-secret]
+description = "Encrypts a secret file using SOPS and age"
+run = "{{config_root}}/scripts/encrypt-secret"

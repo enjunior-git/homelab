@@ -1,0 +1,50 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: s3
+  namespace: s3
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: rustfs/rustfs
+      version: "1.0.4"
+
+      sourceRef:
+        kind: HelmRepository
+        name: s3
+        namespace: s3
+      interval: 12h
+  install:
+    crds: Create
+  upgrade:
+    crds: CreateReplace
+  values:
+    mode:
+      standalone:
+        enabled: true
+      distributed:
+        enabled: false
+    secret:
+      existingSecret: s3-credentials
+    storageclass:
+      name: standard
+      dataStorageSize: 10Gi
+      logStorageSize: 1Gi
+    ingress:
+      enabled: true
+      ingressClassName: traefik
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+      hosts:
+        - host: s3.enjunior.ca
+          paths:
+          - path: /
+            pathType: Prefix
+      tls:
+        enabled: true
+        certManager:
+          enabled: true
+        existingSecret:
+          enabled: false
+          name: ""
