@@ -28,7 +28,7 @@ spec:
     secret:
       existingSecret: s3-credentials
     storageclass:
-      name: standard
+      name: local-path
       dataStorageSize: 10Gi
       logStorageSize: 1Gi
     ingress:
