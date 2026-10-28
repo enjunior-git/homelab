@@ -7,7 +7,7 @@ spec:
   interval: 30m
   chart:
     spec:
-      chart: cnpg-plugin-barman-cloud
+      chart: plugin-barman-cloud
       version: 0.3.1
       sourceRef:
         kind: HelmRepository
