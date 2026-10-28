@@ -1,0 +1,17 @@
+apiVersion: barmancloud.cnpg.io/v1
+kind: ObjectStore
+metadata:
+  name: n8n-objectstore
+  namespace: n8n
+spec:
+  configuration:
+    destinationPath: "s3://n8n-backups/"
+    endpointURL: "http://s3.s3.svc.cluster.local:9000"
+    s3Credentials:
+      accessKeyId:
+        name: rustfs-credentials
+        key: ACCESS_KEY_ID
+      secretAccessKey:
+        name: rustfs-credentials
+        key: ACCESS_SECRET_KEY
+  retentionPolicy: "14d"

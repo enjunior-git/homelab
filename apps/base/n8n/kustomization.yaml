@@ -8,3 +8,5 @@ resources:
   - namespace.yaml
   - storage.yaml
   - service.yaml
+  - object-store.yaml
+  - scheduled-backup.yaml
