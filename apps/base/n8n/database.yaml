@@ -13,14 +13,14 @@ spec:
       source: source
       secret:
         name: n8n-db-credentials
-      
-      externalClusters:
-        - name: source
-          plugin:
-            name: barman-cloud.cloudnative-pg.io
-            parameters:
-              barmanObjectName: n8n-objectstore
-              serverName: n8n-db
+  
+  externalClusters:
+    - name: source
+      plugin:
+        name: barman-cloud.cloudnative-pg.io
+        parameters:
+          barmanObjectName: n8n-objectstore
+          serverName: n8n-db
 
   storage:
     size: 1Gi
