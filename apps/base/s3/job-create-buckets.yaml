@@ -1,0 +1,46 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: create-buckets
+  namespace: s3
+spec:
+  backoffLimit: 6
+  activeDeadlineSeconds: 600
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: create-bucket
+          image: amazon/aws-cli:2
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              set -eu
+
+              endpoint="http://s3-rustfs-svc.s3.svc.cluster.local:9000"
+              bucket="n8n-backups"
+
+              if aws s3api head-bucket \
+                --bucket "$bucket" \
+                --endpoint-url "$endpoint" \
+                >/dev/null 2>&1; then
+                echo "Bucket $bucket already exists"
+              else
+                echo "Creating bucket $bucket"
+                aws s3api create-bucket \
+                  --bucket "$bucket" \
+                  --endpoint-url "$endpoint"
+              fi
+          env:
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: s3-credentials
+                  key: RUSTFS_ACCESS_KEY
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: s3-credentials
+                  key: RUSTFS_SECRET_KEY
+            - name: AWS_DEFAULT_REGION
+              value: us-east-1
