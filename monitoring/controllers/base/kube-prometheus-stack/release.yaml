@@ -22,20 +22,6 @@ spec:
   driftDetection:
     mode: enabled
     ignore:
-      # Ignore "validated" annotation which is not inserted during install
       - paths: ["/metadata/annotations/prometheus-operator-validated"]
         target:
           kind: PrometheusRule
-  values:
-    grafana:
-      adminPassword: junior
-      ingress:
-        enabled: true
-        ingressClassName: traefik
-        hosts:
-          - grafana.enjunior.ca
-        path: /
-        tls:
-          - secretName: grafana-secret-tls
-            hosts:
-              - grafana.enjunior.ca

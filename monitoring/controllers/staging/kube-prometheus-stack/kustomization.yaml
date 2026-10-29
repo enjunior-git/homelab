@@ -3,3 +3,14 @@ kind: Kustomization
 namespace: monitoring
 resources:
   - ../../base/kube-prometheus-stack
+  - secrets.yaml
+  - secrets-telegram.yaml
+
+configMapGenerator:
+  - name: kube-prometheus-stack-values
+    namespace: flux-system
+    files:
+      - values.yaml=values.yaml
+
+configurations:
+  - kustomizeconfig.yaml
