@@ -29,7 +29,7 @@ data:
                   expr: |
                     absent(kube_pod_status_phase{namespace="cnpg-system",pod=~"cnpg-system-cnpg-cloudnative-pg-.*",phase="Running"})
                     or
-                    kube_pod_status_phase{namespace="cnpg-system",pod=~"cnpg-system-cnpg-cloudnative-pg-.*",phase="Running"} != 1
+                    (sum(kube_pod_status_phase{namespace="cnpg-system",pod=~"cnpg-system-cnpg-cloudnative-pg-.*",phase="Running"}) == bool 0)
                   instant: true
                   intervalMs: 1000
                   legendFormat: __auto
@@ -61,7 +61,7 @@ data:
                   expr: |
                     absent(kube_pod_status_phase{namespace="cnpg-system",pod=~"cnpg-plugin-barman-cloud-.*",phase="Running"})
                     or
-                    kube_pod_status_phase{namespace="cnpg-system",pod=~"cnpg-plugin-barman-cloud-.*",phase="Running"} != 1
+                    (sum(kube_pod_status_phase{namespace="cnpg-system",pod=~"cnpg-plugin-barman-cloud-.*",phase="Running"}) == bool 0)
                   instant: true
                   intervalMs: 1000
                   legendFormat: __auto
