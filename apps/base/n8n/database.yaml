@@ -30,4 +30,4 @@ spec:
       isWALArchiver: true
       parameters:
         barmanObjectName: n8n-objectstore
-        serverName: n8n-db2
+        serverName: n8n-db
