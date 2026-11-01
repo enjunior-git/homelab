@@ -3,10 +3,10 @@ kind: Kustomization
 namespace: n8n
 resources:
   - configmap.yaml
-  # - database.yaml
+  - database.yaml
   - deployment.yaml
   - namespace.yaml
   - storage.yaml
   - service.yaml
   - object-store.yaml
-  # - scheduled-backup.yaml
+  - scheduled-backup.yaml
