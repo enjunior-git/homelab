@@ -1,7 +1,7 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: n8n-db
+  name: n8n-db2
   namespace: n8n
 spec:
   instances: 2
@@ -30,4 +30,4 @@ spec:
       isWALArchiver: true
       parameters:
         barmanObjectName: n8n-objectstore
-        serverName: n8n-db-2
+        serverName: n8n-db2
