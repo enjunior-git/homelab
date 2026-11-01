@@ -14,4 +14,4 @@ spec:
       secretAccessKey:
         name: s3-credentials
         key: ACCESS_SECRET_KEY
-  retentionPolicy: "14d"
+  retentionPolicy: "3d"
