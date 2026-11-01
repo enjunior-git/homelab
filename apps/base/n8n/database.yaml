@@ -7,20 +7,26 @@ spec:
   instances: 2
 
   bootstrap:
-    recovery:
+    initdb:
       database: app
       owner: n8n
-      source: source
       secret:
         name: n8n-db-credentials
+        
+  #   recovery:
+  #     database: app
+  #     owner: n8n
+  #     source: source
+  #     secret:
+  #       name: n8n-db-credentials
   
-  externalClusters:
-    - name: source
-      plugin:
-        name: barman-cloud.cloudnative-pg.io
-        parameters:
-          barmanObjectName: n8n-objectstore
-          serverName: n8n-db
+  # externalClusters:
+  #   - name: source
+  #     plugin:
+  #       name: barman-cloud.cloudnative-pg.io
+  #       parameters:
+  #         barmanObjectName: n8n-objectstore
+  #         serverName: n8n-db
 
   storage:
     size: 1Gi
