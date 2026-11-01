@@ -34,11 +34,42 @@ spec:
 
           securityContext:
             allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
+
+          resources:
+            requests:
+              memory: 256Mi
+              cpu: 100m
+            limits:
+              memory: 1Gi
+              cpu: 1000m
+
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 3008
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            failureThreshold: 3
+            
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 3008
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            failureThreshold: 3
 
       securityContext:
         runAsUser: 1000
         runAsGroup: 1000
         fsGroup: 1000
+
+        seccompProfile:
+          type: RuntimeDefault
 
       volumes:
         - name: n8n-data
