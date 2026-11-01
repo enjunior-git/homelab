@@ -7,4 +7,4 @@ spec:
   schedule: "0 0 3 * 7" # Every Sunday at 3 AM
   backupOwnerReference: cluster
   cluster:
-    name: n8n-db2
+    name: n8n-db-v3
