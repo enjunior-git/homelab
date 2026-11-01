@@ -25,6 +25,8 @@ spec:
           volumeMounts:
             - mountPath: /home/node/.n8n
               name: n8n-data
+            - mountPath: /home/node/.cache
+              name: n8n-cache
 
           envFrom:
             - configMapRef:
@@ -50,7 +52,7 @@ spec:
           livenessProbe:
             httpGet:
               path: /healthz
-              port: 3008
+              port: 5678
             initialDelaySeconds: 30
             periodSeconds: 10
             failureThreshold: 3
@@ -58,7 +60,7 @@ spec:
           readinessProbe:
             httpGet:
               path: /healthz
-              port: 3008
+              port: 5678
             initialDelaySeconds: 30
             periodSeconds: 10
             failureThreshold: 3
@@ -75,3 +77,5 @@ spec:
         - name: n8n-data
           persistentVolumeClaim:
             claimName: n8n-storage
+        - name: n8n-cache
+          emptyDir: {}
