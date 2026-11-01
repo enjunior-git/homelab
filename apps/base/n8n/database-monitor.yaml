@@ -1,0 +1,10 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: n8n-db-v3-monitor
+spec:
+  selector:
+    matchLabels:
+      postgresql: n8n-db-v3
+  podMetricsEndpoints:
+  - port: metrics

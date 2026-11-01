@@ -4,6 +4,7 @@ namespace: n8n
 resources:
   - configmap.yaml
   - database.yaml
+  - database-monitor.yaml
   - deployment.yaml
   - namespace.yaml
   - storage.yaml

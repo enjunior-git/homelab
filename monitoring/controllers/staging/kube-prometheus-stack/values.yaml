@@ -35,10 +35,11 @@ grafana:
       label: grafana_dashboard
       labelValue: "1"
       searchNamespace: monitoring
-      folderAnnotation: grafana_folder
+      folderAnnotation: dashboards
       provider:
-        allowUiUpdates: true
+        allowUiUpdates: false
         folder: Kubernetes
+
     alerts:
       enabled: true
       label: grafana_alert
