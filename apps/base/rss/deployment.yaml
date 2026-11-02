@@ -39,3 +39,5 @@ spec:
         - name: rss-data
           persistentVolumeClaim:
             claimName: rss-storage
+        - name: rss-extensions
+          emptyDir: {}
