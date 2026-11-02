@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rss
+  namespace: rss
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: traefik
+  tls:
+    - hosts:
+        - rss.enjunior.ca
+      secretName: rss-tls
+  rules:
+    - host: rss.enjunior.ca
+      http:
+        paths:
+          - backend:
+              service:
+                name: rss
+                port:
+                  number: 8080
+            path: /
+            pathType: Prefix

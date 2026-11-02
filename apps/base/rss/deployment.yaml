@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rss
+  namespace: rss
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: rss
+
+  template:
+    metadata:
+      labels:
+        app: rss
+
+    spec:
+      containers:
+        - image: freshrss/freshrss:1.30.4-alpine
+          name: rss
+          ports:
+            - containerPort: 8080
+
+          volumeMounts:
+            - mountPath: /var/www/FreshRSS/data
+              name: rss-data
+            - mountPath: /var/www/FreshRSS/extensions 
+              name: rss-extensions  
+
+          envFrom:
+            - configMapRef:
+                name: rss-configmap
+
+          securityContext:
+            allowPrivilegeEscalation: false
+
+      volumes:
+        - name: rss-data
+          persistentVolumeClaim:
+            claimName: rss-storage
