@@ -37,7 +37,7 @@ spec:
 
           resources:
             requests:
-              memory: 256Mi
+              memory: 321Mi
               cpu: 100m
             limits:
               memory: 1Gi
@@ -47,16 +47,16 @@ spec:
             httpGet:
               path: /api/app/about
               port: 9000
-            initialDelaySeconds: 30
-            periodSeconds: 10
+            initialDelaySeconds: 50
+            periodSeconds: 30
             failureThreshold: 3
             
           readinessProbe:
             httpGet:
               path: /api/app/about
               port: 9000
-            initialDelaySeconds: 30
-            periodSeconds: 10
+            initialDelaySeconds: 50
+            periodSeconds: 30
             failureThreshold: 3
       
       # abc user
