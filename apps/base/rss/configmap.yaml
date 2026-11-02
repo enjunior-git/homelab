@@ -6,3 +6,4 @@ metadata:
 data:
   TZ: "America/Montreal"
   CRON_MIN: "1,31"
+  LISTEN: 8080

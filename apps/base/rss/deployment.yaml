@@ -20,7 +20,7 @@ spec:
         - image: freshrss/freshrss:1.30.4-alpine
           name: rss
           ports:
-            - containerPort: 80
+            - containerPort: 8080
 
           volumeMounts:
             - mountPath: /var/www/FreshRSS/data

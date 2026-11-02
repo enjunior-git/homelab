@@ -5,7 +5,7 @@ metadata:
   namespace: rss
 spec:
   ports:
-    - port: 80
+    - port: 8080
   selector:
     app: rss
   type: ClusterIP
