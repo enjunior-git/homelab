@@ -31,6 +31,14 @@ spec:
   storage:
     size: 1Gi
 
+  resources:
+    requests:
+      cpu: 100m
+      memory: 512Mi
+    limits:
+      cpu: 1
+      memory: 1Gi
+
   postgresql:
     parameters:
       archive_timeout: 12h

@@ -4,7 +4,10 @@ metadata:
   name: n8n-db-backup2
   namespace: n8n
 spec:
-  schedule: "0 3 * * *" # Every day at 3 AM
+  schedule: "0 0 3 * * *" # Every day at 3 AM
   backupOwnerReference: cluster
   cluster:
     name: n8n-db-v3
+  method: plugin
+  pluginConfiguration:
+    name: barman-cloud.cloudnative-pg.io
