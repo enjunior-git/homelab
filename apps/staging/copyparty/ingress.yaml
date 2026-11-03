@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: copyparty
+  namespace: copyparty
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: traefik
+  tls:
+    - hosts:
+        - files.enjunior.ca
+      secretName: files-tls
+  rules:
+    - host: files.enjunior.ca
+      http:
+        paths:
+          - backend:
+              service:
+                name: copyparty
+                port:
+                  number: 3923
+            path: /
+            pathType: Prefix

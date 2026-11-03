@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: copyparty
+  namespace: copyparty
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: copyparty
+
+  template:
+    metadata:
+      labels:
+        app: copyparty
+
+    spec:
+      containers:
+        - image: copyparty/ac:1.20.26
+          name: copyparty
+          ports:
+            - containerPort: 3923
+
+          volumeMounts:
+            - mountPath: /w
+              name: copyparty-data
+
+            - mountPath: /cfg
+              name: copyparty-config
+              readOnly: true
+
+          securityContext:
+            allowPrivilegeEscalation: false
+
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+
+      volumes:
+        - name: copyparty-data
+          persistentVolumeClaim:
+            claimName: copyparty-storage
+
+        - name: copyparty-config
+          secret:
+            secretName: copyparty-config
