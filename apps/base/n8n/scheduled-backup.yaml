@@ -4,7 +4,7 @@ metadata:
   name: n8n-db-backup2
   namespace: n8n
 spec:
-  schedule: "0 0 3 * 7" # Every Sunday at 3 AM
+  schedule: "0 3 * * *" # Every day at 3 AM
   backupOwnerReference: cluster
   cluster:
     name: n8n-db-v3
