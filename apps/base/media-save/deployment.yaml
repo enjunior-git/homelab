@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: media-save
-          image: ghcr.io/enjunior-git/media-save-server:latest
+          image: ghcr.io/enjunior-git/media-save-server:v1.0.3
           envFrom:
             - configMapRef:
                 name: media-save-config
