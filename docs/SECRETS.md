@@ -7,4 +7,7 @@ openssl rand -base64 32
 
 # Applying encryption with SOPS. Make sure to have age.agekey
 mise run encrypt-secret ./path/to/secrets.yaml
+
+# And to decrypt it back...
+mise run decrypt-secret ./path/to/secrets.yaml
 ```

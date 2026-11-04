@@ -14,3 +14,7 @@ KUBECONFIG = "{{config_root}}/kubeconfig"
 [tasks.encrypt-secret]
 description = "Encrypts a secret file using SOPS and age"
 run = "{{config_root}}/scripts/encrypt-secret"
+
+[tasks.decrypt-secret]
+description = "Decrypts a secret file using SOPS and age"
+run = "{{config_root}}/scripts/decrypt-secret"
