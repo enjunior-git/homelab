@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: media-save
+  namespace: media-save
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: media-save
+  template:
+    metadata:
+      labels:
+        component: media-save
+    spec:
+      containers:
+        - name: media-save
+          image: ghcr.io/enjunior-git/media-save-server:latest
+          envFrom:
+            - configMapRef:
+                name: media-save-config
+          ports:
+            - containerPort: 3548
+              name: api
+            - containerPort: 1500
+              name: static
+
+          volumeMounts:
+            - mountPath: /app/db
+              name: media-save-data
+
+          resources:
+            limits:
+              memory: "512Mi"
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+              
+      volumes:
+        - name: media-save-data
+          persistentVolumeClaim:
+            claimName: media-save-storage

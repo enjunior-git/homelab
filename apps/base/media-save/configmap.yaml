@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: media-save-config
+  namespace: media-save
+data:
+  MEDIA_DATABASE_PATH: file:/app/db/media.db
+  MEDIA_FOLDER_PATH: /app/db/media
+  API_URL: http://localhost:3548
+  WEBSOCKETS_URL: ws://localhost:3548

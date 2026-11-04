@@ -1,0 +1,35 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: media-save
+  namespace: media-save
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: traefik
+  tls:
+    - hosts:
+        - media.enjunior.ca
+        - api.media.enjunior.ca
+      secretName: media-save-tls
+  rules:
+    - host: media.enjunior.ca
+      http:
+        paths:
+          - backend:
+              service:
+                name: media-save
+                port:
+                  number: 1500
+            path: /
+            pathType: Prefix
+    - host: api.media.enjunior.ca
+      http:
+        paths:
+          - backend:
+              service:
+                name: media-save
+                port:
+                  number: 3548
+            path: /
+            pathType: Prefix
