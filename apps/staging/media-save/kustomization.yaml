@@ -4,3 +4,6 @@ namespace: media-save
 resources:
   - ../../base/media-save
   - ingress.yaml
+
+patches:
+  - path: configmap.yaml

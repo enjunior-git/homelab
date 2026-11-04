@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: media-save-config
+  namespace: media-save
+data:
+  API_URL: https://api.media.enjunior.ca
+  WEBSOCKETS_URL: wss://api.media.enjunior.ca
