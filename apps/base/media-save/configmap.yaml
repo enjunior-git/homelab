@@ -7,4 +7,5 @@ data:
   MEDIA_DATABASE_PATH: file:/app/db/media.db
   MEDIA_FOLDER_PATH: /app/db/media
   API_URL: http://localhost:3548
+  STATIC_SERVER_URL: http://localhost:1500
   WEBSOCKETS_URL: ws://localhost:3548

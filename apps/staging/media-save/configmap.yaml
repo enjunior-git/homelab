@@ -6,3 +6,4 @@ metadata:
 data:
   API_URL: https://api.media.enjunior.ca
   WEBSOCKETS_URL: wss://api.media.enjunior.ca
+  STATIC_SERVER_URL: https://media.enjunior.ca
