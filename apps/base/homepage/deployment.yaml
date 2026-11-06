@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: homepage
-          image: ghcr.io/enjunior-git/homepage:v1.0.0
+          image: ghcr.io/enjunior-git/homepage:v1.0.1
           envFrom:
             - configMapRef:
                 name: homepage-config
