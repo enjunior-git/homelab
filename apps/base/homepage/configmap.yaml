@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: homepage-config
+  namespace: homepage
+data:
+  COPYPARTY_URLS: https://files.enjunior.ca/art/gallery/mine,https://files.enjunior.ca/art/gallery/others
+  MEDIA_SAVE_URL: https://api.media.enjunior.ca/random.list

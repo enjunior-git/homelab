@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homepage
+  namespace: homepage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: homepage
+  template:
+    metadata:
+      labels:
+        component: homepage
+    spec:
+      containers:
+        - name: homepage
+          image: ghcr.io/enjunior-git/homepage:v1.0.0
+          envFrom:
+            - configMapRef:
+                name: homepage-config
+          ports:
+            - containerPort: 4321
+              name: server
+
+          resources:
+            limits:
+              memory: "512Mi"
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
