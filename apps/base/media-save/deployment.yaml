@@ -13,13 +13,9 @@ spec:
       labels:
         component: media-save
     spec:
-      securityContext:
-        fsGroup: 65532
-        fsGroupChangePolicy: OnRootMismatch
-            
       containers:
         - name: media-save
-          image: ghcr.io/enjunior-git/media-save-server:v1.0.5
+          image: ghcr.io/enjunior-git/media-save-server:v1.0.6
           envFrom:
             - configMapRef:
                 name: media-save-config
@@ -28,11 +24,6 @@ spec:
               name: api
             - containerPort: 1500
               name: static
-
-          securityContext:
-            runAsNonRoot: true
-            runAsUser: 65532
-            runAsGroup: 65532
 
           volumeMounts:
             - mountPath: /app/db
@@ -44,6 +35,24 @@ spec:
             requests:
               cpu: "100m"
               memory: "128Mi"
+
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: static
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 12
+            
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: static
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 3
               
       volumes:
         - name: media-save-data
