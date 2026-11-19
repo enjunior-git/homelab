@@ -13,6 +13,10 @@ spec:
       labels:
         component: media-save
     spec:
+      securityContext:
+        fsGroup: 65532
+        fsGroupChangePolicy: OnRootMismatch
+            
       containers:
         - name: media-save
           image: ghcr.io/enjunior-git/media-save-server:v1.0.5
@@ -29,9 +33,7 @@ spec:
             runAsNonRoot: true
             runAsUser: 65532
             runAsGroup: 65532
-            fsGroup: 65532
-            fsGroupChangePolicy: OnRootMismatch
-            
+
           volumeMounts:
             - mountPath: /app/db
               name: media-save-data
