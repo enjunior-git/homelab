@@ -25,6 +25,13 @@ spec:
             - containerPort: 1500
               name: static
 
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 65532
+            runAsGroup: 65532
+            fsGroup: 65532
+            fsGroupChangePolicy: OnRootMismatch
+            
           volumeMounts:
             - mountPath: /app/db
               name: media-save-data
