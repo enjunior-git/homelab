@@ -13,9 +13,19 @@ spec:
       labels:
         component: media-save
     spec:
+      initContainers:
+        - name: media-save-migrate
+          image: ghcr.io/enjunior-git/media-save-server:v1.0.6-1
+          command: ["node", "/app/docker-migrate.mjs"]
+          envFrom:
+            - configMapRef:
+                name: media-save-config
+          volumeMounts:
+            - name: media-save-data
+              mountPath: /app/db
       containers:
         - name: media-save
-          image: ghcr.io/enjunior-git/media-save-server:v1.0.6
+          image: ghcr.io/enjunior-git/media-save-server:v1.0.6-1
           envFrom:
             - configMapRef:
                 name: media-save-config
