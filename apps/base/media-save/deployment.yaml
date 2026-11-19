@@ -36,20 +36,26 @@ spec:
               cpu: "100m"
               memory: "128Mi"
 
+          startupProbe:
+            httpGet:
+              path: /health
+              port: static
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 60
+
           readinessProbe:
             httpGet:
               path: /health
               port: static
-            initialDelaySeconds: 5
             periodSeconds: 5
             timeoutSeconds: 3
-            failureThreshold: 12
-            
+            failureThreshold: 3
+
           livenessProbe:
             httpGet:
               path: /health
               port: static
-            initialDelaySeconds: 30
             periodSeconds: 10
             timeoutSeconds: 3
             failureThreshold: 3
