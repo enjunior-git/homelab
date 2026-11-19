@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: media-save
 resources:
   # - ../../base/media-save
-  - ingress.yaml
+#   - ingress.yaml
 
-patches:
-  - path: configmap.yaml
+# patches:
+#   - path: configmap.yaml
