@@ -1,0 +1,34 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: k8s-stats-exporter
+  namespace: stats
+spec:
+  schedule: "30 * * * *"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: k8s-stats-exporter
+          restartPolicy: OnFailure
+          containers:
+            - name: exporter
+              image: bitnami/kubectl:latest
+              command:
+                - /bin/sh
+                - -c
+                - |
+                  kubectl get nodes -o json > "/exports/nodes.json"
+                  # kubectl get cluster -o json > "/exports/nodes.json"
+                  # kubectl get cronjobs --all-namespaces -o json > "/exports/nodes.json"
+                  # kubectl get deploy --all-namespaces -o json > "/exports/nodes.json"
+                  # kubectl get helm-releases --all-namespaces -o json > "/exports/nodes.json"
+                  # kubectl get namespaces -o json > "/exports/nodes.json"
+              volumeMounts:
+                - name: exports
+                  mountPath: /exports
+          volumes:
+            - name: exports
+              persistentVolumeClaim:
+                claimName: k8s-stats-storage
